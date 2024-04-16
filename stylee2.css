@@ -1,0 +1,131 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: rgba (255, 255, 255);
+    background-image: url("imagen/WhatsApp\ Image\ 2024-03-25\ at\ 1.56.26\ PM.jpeg");
+}
+
+.nav-menu::before,
+.nav-menu::after {
+    content: "";
+    display: table;
+}
+
+.nav-menu::after {
+    clear: both;
+}
+
+.nav-menu {
+    zoom: 1;
+}
+
+nav {
+    padding: 50px;
+}
+
+.menu,
+.submenu {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu {
+    margin: 10px auto;
+    width: 800px;
+    width: -moz-fit-content;
+    width: -webkit-fit-content;
+    width: fit-content;
+}
+
+.menu > li {
+    background: #000000;
+    float: left;
+    position: relative;
+    transform: skewX(25deg);
+}
+
+.menu a {
+    display: block;
+    color: aliceblue;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 13.3px;
+}
+
+.menu li:hover {
+    background: #ff0000;
+}
+
+.menu > li > a {
+    transform: skewX(-25deg);
+    padding: 1em 2em;
+}
+
+/*dropdown*/
+.menu-item {
+    position: absolute;
+    width: 150px; /* Adjusted width to 150px */
+    left: 50%;
+    margin-left: -70px; /* Adjusted half width to center it */
+    transform: skewX(-35deg);
+    transform-origin: left top;
+}
+
+.menu-item li {
+    background-color: #3e3d3d;
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-item > li > a {
+    padding: 1em 2em;
+}
+
+.menu-item > li::after {
+    content: '';
+    position: absolute;
+    top: -125%;
+    height: 100%;
+    width: 100%;
+    box-shadow: 0 0 50px rgba(0, 0, 0.9);
+}
+
+.menu-item > li:nth-child(odd) {
+    transform: skewX(-25deg) translate(0);
+}
+
+.menu-item > li:nth-child(odd) > a {
+    transform: skewX(25deg);
+}
+
+.menu-item > li:nth-child(odd)::after {
+    right: -50%;
+    transform: skewX(-25deg) rotate(3deg);
+}
+
+.menu-item,
+.menu-item li {
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.2s ease transform;
+}
+
+.menu > li:hover .menu-item,
+.menu > li:hover .menu-item li {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu > li:hover .menu-item li:nth-child(even) {
+    transform: skewX(25deg) translateX(15px);
+}
+
+.menu > li:hover .menu-item li:nth-child(odd) {
+    transform: skewX(-25deg) translateX(-15px);
+}
